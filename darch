@@ -111,7 +111,7 @@ then
 	mount $(cat root-efi) /mnt 
 
 	mkdir -p /mnt/home
-	mkfs.btrfs $(cat home-efi) 
+	mkfs.ext4 $(cat home-efi) 
 	mount $(cat home-efi) /mnt/home
 
 	mkdir -p /mnt/efi 
@@ -166,11 +166,11 @@ else
 	echo ""
 	echo "Formateando Particiones"
 	echo ""
-	mkfs.btrfs $(cat root-bios) 
+	mkfs.ext4 $(cat root-bios) 
 	mount $(cat root-bios) /mnt 
 
 	mkdir -p /mnt/boot
-	mkfs.ext2 $(cat boot-bios) 
+	mkfs.ext4 $(cat boot-bios) 
 	mount $(cat boot-bios) /mnt/boot
 
 	mkswap $(cat swap-bios) 
