@@ -166,11 +166,11 @@ else
 	echo ""
 	echo "Formateando Particiones"
 	echo ""
-	mkfs.ext4 $(cat root-bios) 
+	mkfs.btrfs $(cat root-bios) 
 	mount $(cat root-bios) /mnt 
 
 	mkdir -p /mnt/boot
-	mkfs.ext4 $(cat boot-bios) 
+	mkfs.ext2 $(cat boot-bios) 
 	mount $(cat boot-bios) /mnt/boot
 
 	mkswap $(cat swap-bios) 
